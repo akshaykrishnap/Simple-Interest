@@ -44,6 +44,7 @@ function App() {
 if (name==='principle') {
   setPrinciple(value)
   setisPrinciple(false)
+  setistrue(false)
   }
 
 else if(name==='rate'){
@@ -64,9 +65,11 @@ else{
 setPrinciple(0)
 setRate(0)
 setYear(0)
+setInterest(0)
 setisPrinciple(true)
 setisRate(true)
 setisYear(true)
+
   }
   handleCalculate =(e)=>{
     e.preventDefault()
@@ -103,7 +106,7 @@ setisYear(true)
   <p className='text-danger'>*Invalid Input</p>}
   </div>
   <div className="mb-3 d-flex justify-content-between">
-  <Button variant="contained" color='success' size='large' style={{height:'40px', width:'170px'}} disabled={principle && rate && year ?false:true} >CALCULATE</Button> 
+  <Button variant="contained" color='success' size='large' style={{height:'40px', width:'170px'}} disabled={!isTrue?false:true} >CALCULATE</Button> 
   <Button variant="outlined" onClick={handleReset} color='info' size='large' style={{height:'40px', width:'170px'}}>RESET</Button>
   </div>
 </form>
