@@ -9,6 +9,7 @@ function App() {
   const[principle,setPrinciple]= useState(0)
   const[rate,setRate]= useState(0)
   const[year,setYear]= useState(0)
+  const[interest,setInterest]=useState(0)
 
   /* validation */
   const[isPrinciple,SetisPrinciple]= useState(true)
@@ -71,7 +72,8 @@ setisRate(true)
 setisYear(true)
 
   }
-  handleCalculate =(e)=>{
+  
+  const handleCalculate =(e)=>{
     e.preventDefault()
     setInterest((principle*rate*year)/100)
   }
@@ -79,12 +81,12 @@ setisYear(true)
   return (
     /* jsx */
     <>
-<div s tyle={{height:'100vh'}} className='bg-dark d-flex justify-content-center align-items-center'>
-<div className='bg-light p-5 rounded' style={{height:'550px'}}>
+<div s tyle={{height:'100vh'}} className=' d-flex justify-content-center align-items-center'>
+<div className='bg-light  p-5 rounded' style={{height:'610px',margin:'60px'}}>
 <h1>Simple Interest</h1>
 <p>Calculate your Simple Interest </p>
 <div style={{height:'100px'}} className='bg-warning rounded mt-5 d-flex justify-content-center align-items-center flex-column'>
-  <h2>₹ 100</h2>
+  <h2>₹ {interest}</h2>
  <p>Total Simple Interest</p> 
 </div>
 
@@ -106,8 +108,8 @@ setisYear(true)
   <p className='text-danger'>*Invalid Input</p>}
   </div>
   <div className="mb-3 d-flex justify-content-between">
-  <Button variant="contained" color='success' size='large' style={{height:'40px', width:'170px'}} disabled={!isTrue?false:true} >CALCULATE</Button> 
-  <Button variant="outlined" onClick={handleReset} color='info' size='large' style={{height:'40px', width:'170px'}}>RESET</Button>
+  <Button variant="contained" onClick={handleCalculate} color='success' size='large' style={{height:'40px', width:'160px'}} type='submit' disabled={isPrinciple && isRate && isYear?false:true} >CALCULATE</Button> 
+  <Button variant="outlined" onClick={handleReset} color='info' size='large' style={{height:'40px', width:'160px', marginLeft:'11px'}}>RESET</Button>
   </div>
 </form>
 
